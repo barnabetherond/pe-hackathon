@@ -14,7 +14,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import xcovers as x
+import xcover as x
 
 
 # +
@@ -72,7 +72,7 @@ def emplacement(piece, tableau, idx):
                 tableau_prime = tableau.copy()  # Faire une copie pour éviter de modifier le tableau original
                 # Placer la pièce dans le tableau
                 tableau_prime[m:m+i, n:n+j_shape] = 1  # Remplacer les valeurs par 1
-                T.append(np.concatenate((j, tableau_prime.flatten())))  # Ajouter le tableau à la liste
+                T.append((np.concatenate((j, tableau_prime.flatten()))).tolist())  # Ajouter le tableau à la liste
 
     return T
     
@@ -90,7 +90,7 @@ def tableau_final(tableau, pieces):
     idx=0
     L=[]
     for p in pieces :
-        L.append(emplacement(p, tableau, idx))
+        L = L + emplacement(p, tableau, idx)
         idx+=1
     return L
         
@@ -98,7 +98,8 @@ def tableau_final(tableau, pieces):
     
 # -
 
-sol=next(x.covers(matrice))
+#print(tableau_final(tableau(6,10), pieces))
+sol=next(x.covers(tableau_final(tableau(12,5), pieces)))
 
 
 def Tableau_sol(matrice, sol, dimensions):
@@ -115,3 +116,5 @@ def Tableau_sol(matrice, sol, dimensions):
 
 
 Tableau_sol(tableau_final(tableau(dimensions), pieces),sol,dimensions)
+
+
