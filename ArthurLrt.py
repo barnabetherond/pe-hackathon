@@ -31,9 +31,11 @@ def obstacle (tableau,L):
 
 pieces=[[[1, 1, 0], [0, 1, 1], [0, 1, 0]],[[1, 1, 1, 1, 1]],[[1, 0, 0, 0], [1, 1, 1, 1]], [[1, 1, 0, 0], [0, 1, 1, 1]],[[1, 1, 1], [1, 1, 0]],[[1, 1, 1], [0, 1, 0], [0, 1, 0]],[[1, 1, 1], [1, 0, 1]],[[1, 1, 1], [1, 0, 0], [1, 0, 0]],[[1, 0, 0], [1, 1, 0], [0, 1, 1]],[[0, 1, 0], [1, 1, 1], [0, 1, 0]],[[0, 1, 0, 0], [1, 1, 1, 1]],[[1, 1, 0], [0, 1, 0], [0, 1, 1]]]
 dimensions=(6,10)
+
+
+# +
+# x?
 # -
-
-
 
 def supprimer_doublons(liste):
     liste_sans_doublons = []
@@ -98,8 +100,15 @@ def tableau_final(tableau, pieces):
     
 # -
 
+pattern = tableau_final(tableau(12,5), pieces)
+len(pattern)
+
+len(pattern[0])
+
+solutions = x.covers_bool(np.array(pattern))
+
 #print(tableau_final(tableau(6,10), pieces))
-sol=next(x.covers(tableau_final(tableau(12,5), pieces)))
+next(solutions)
 
 
 def Tableau_sol(matrice, sol, dimensions):
