@@ -63,4 +63,4 @@ def Tableau_sol(matrice, sol, dimensions):
 
         
     
-    
+
